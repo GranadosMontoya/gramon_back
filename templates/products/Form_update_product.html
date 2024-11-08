@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="modal-header">
+    <h5 class="modal-title" id="staticBackdropLabel">Actualizar producto</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form id="mi_formulario_update_product">
+    <label for="input_image_product">
+        <img class="image_product" src="{{ product_info.image }}" alt="default.jpg" id="image_product" data-default-file="{% static 'img/products/default/default-img.jpg' %}">
+    </label>
+    <hr class="dropdown-divider">
+    <div class="form-group">
+        <label for="name" class="updateproduct_label">Nombre:</label>
+        <input type="text" class="updateproduct_input form-control" type="text" name="name" id="name" value="{{product_info.name}}">
+    </div>
+    <div class="form-group">
+        <label for="amount" class="updateproduct_label">Cantidad:</label>
+        <input type="text" class="updateproduct_input form-control" type="text" name="name" id="amount" value="{{product_info.amount}}">
+    </div>
+    <div class="form-group">
+        <label for="entry_price" class="updateproduct_label">Precio de entrada:</label>
+        <input type="text" class="updateproduct_input form-control" type="text" name="entry_price" id="entry_price" value="{{product_info.entry_price}}">
+    </div>
+    <div class="form-group">
+        <label for="exit_price" class="updateproduct_label">Precio de salida:</label>
+        <input type="text" class="updateproduct_input form-control" type="text" name="exit_price" id="exit_price" value="{{product_info.exit_price}}">
+    </div>
+    <p id="alert_digit">Nota: En los campos para los precios, sólo se permiten maximo 10 caracteres</p>
+    <button type="button" class="btn btn-outline-success updateproduct_boton" value="Actualizar">Actualizar</button>
+</form>
+
+<script>
+    var existingCode = "{{product_info.code}}";
+</script>

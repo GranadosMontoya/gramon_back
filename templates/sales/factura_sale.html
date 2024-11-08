@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            color: #333;
+            margin: 0; /* Elimina márgenes en el body */
+        }
+
+        .invoice-box {
+            max-width: 800px;  
+            margin: auto;
+            padding: 10px; /* Reduce el relleno */
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .invoice-box table td {
+            padding: 5px; /* Reduce el padding */
+            vertical-align: top;
+        }
+
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.heading td {
+            background-color: #03A64A; /* Verde */
+            color: white;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.item td {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            text-align: right;
+            border-top: 2px solid #03A64A;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media print {
+            @page {
+                size: 150mm auto; /* Tamaño personalizado */
+                page-break-inside: avoid; /* Evita que el contenido se divida entre páginas */
+            }
+            body, .invoice-box {
+                width: 150mm; /* Ajusta el ancho para impresión en formato de ticket */
+                height: auto; /* Permite que la altura se ajuste automáticamente */
+                margin: 0;
+                padding: 0;
+            }
+
+            img {
+                display: block;
+                max-width: 100%; /* Asegúrate de que las imágenes no se corten */
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="4">
+                    <table>
+                        <tr>
+                            <td style="text-align: right;"> <!-- Alineación a la derecha -->
+                                Factura #: {{ info_venta.id }}<br>
+                                Fecha y hora: {{ info_venta.created_at }}<br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="information">
+                <td colspan="4">
+                    <table>
+                        <tr>
+                            <td style="text-align: left;"> <!-- Justificación del texto -->
+                                TIENDA AQUI ME QUEDO<br>
+                                CALLE X # X - X<br>
+                                {{ info_venta.empresa_ciudad }}
+                            </td>
+                            <td style="text-align: right;"> <!-- Justificación del texto -->
+                                Cliente: {{ info_venta.client_full_name }}<br>
+                                Cajero: {{ info_venta.user_full_name }}<br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="heading">
+                <td style="text-align: center;">Producto</td>
+                <td style="text-align: center;">Cantidad</td>
+                <td style="text-align: center;">Precio C/U</td>
+                <td style="text-align: center;">Precio</td>
+            </tr>
+
+            {% for producto in productos %}
+            <tr class="item">
+                <td>{{ producto.name }}</td>
+                <td  style="text-align: center;">{{ producto.cantidad }}</td>
+                <td  style="text-align: center;">${{ producto.precio_unitario }}</td>
+                <td  style="text-align: center;">${{ producto.valor_total }}</td>
+            </tr>
+            {% endfor %}
+            
+            <tr class="total">
+                <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+                <td style="text-align: center; border-top: 2px solid #03A64A;">${{ info_venta.valor_final }}</td>
+            </tr>
+            
+            <tr>
+                <td colspan="4" class="payment-label" style="text-align: center;">Pago con: ${{ info_venta.pay }}</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="payment-label" style="text-align: center;">Cambio: ${{ info_venta.change }}</td>
+            </tr>
+            
+        </table>
+        <div class="footer">
+            ¡Gracias por su compra!
+        </div>
+    </div>
+</body>
+</html>

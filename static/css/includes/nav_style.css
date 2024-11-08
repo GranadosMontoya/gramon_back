@@ -1,0 +1,127 @@
+#nav_principal{
+    background-color:#FDFEFE;
+}
+
+.navbar-toggler.icon_principal {
+    background-color: transparent; /* Asegura que no haya fondo que cambie al hacer clic */
+    padding: 0; /* Ajusta el padding según necesites */
+    outline: none; /* Quita el contorno de enfoque */
+}
+
+.navbar-toggler.icon_principal:focus,
+.navbar-toggler.icon_principal:active,
+.navbar-toggler.icon_principal:hover {
+    outline: none; /* Quita el contorno de enfoque en todos los estados */
+    box-shadow: none; /* Quita cualquier sombra aplicada en estos estados */
+    background-color: transparent; /* Asegura que el fondo no cambie */
+}
+
+#icon-gramon {
+    width: 180px;
+    margin-left: -20px;
+}
+
+#icon-user{
+    margin-right: 20px;
+}
+
+.title_name{
+    color: #58D68D;
+}
+
+.title_name:hover {
+    color: #196F3D;
+}
+
+.modal-content {
+    width: 70%; 
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    border-radius: 25px;
+    text-align: center;
+    font-family: poppins;
+    color: rgb(73, 73, 73);
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+.offcanvas-header{
+    background-color:#fdfefe;
+}
+
+.offcanvas-title {
+    color: #03A64A;
+}
+
+#offcanvasNavbarLabel{
+font-size: xx-large;
+}
+.colored-svg {
+    color: #03A64A;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.colored-svg:hover {
+    text-decoration: none;
+    color: #196F3D;
+    background-color: #E5E7E9;
+}
+
+.colored-svg:focus{
+    color: #196F3D;
+    background-color: #A9DFBF;
+}
+
+.string-svg{
+    margin-right: 5px;
+}
+
+.input_image_product {
+    display: none;
+}
+
+.image_product {
+    width: 90px;
+    height: 90px;
+    border-radius: 25px;
+    object-fit: cover;
+    border: 2px dashed rgb(139, 139, 139);
+    margin: 5px;
+    padding: 0px;
+}
+
+.delete_image_product {
+    position: relative;
+    bottom: -45px;
+    padding: 5px 7px;
+    border: 1px solid rgb(223, 223, 223);
+    color: #6b6b6b;
+    border-radius: 50%;
+    transition: .2s;
+    margin-left: -30px;
+}
+
+.delete_image_product:hover {
+    background: #fe1d1d;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+      width: 100%;
+    }
+}
+
+.icon_principal{
+    border: 1px solid rgba(136, 136, 136, 0.5);
+    padding-left: 5px;
+    margin-left: 10px;
+}

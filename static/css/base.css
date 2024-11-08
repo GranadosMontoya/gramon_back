@@ -1,0 +1,23 @@
+.custom-tooltip {
+    --bs-tooltip-bg: var(--bd-violet-bg);
+    --bs-tooltip-color: var(--bs-white);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Asegura que html y body ocupen toda la altura de la ventana */
+}
+
+.content {
+    min-height: 100vh; /* Asegura que el cuerpo tenga al menos el tamaño de la pantalla */
+    display: flex;
+    flex-direction: column;
+}
+
+    .contentContainer{
+        display: flex;
+        flex-direction: column; /* Si deseas centrar en columna, ajusta según sea necesario */
+        align-items: center;    /* Centra los elementos horizontalmente */
+        text-align: center; 
+    }

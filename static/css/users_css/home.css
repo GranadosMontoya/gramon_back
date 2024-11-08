@@ -1,0 +1,79 @@
+#contentContainer {
+    height: 100vh; /* Ocupa el 100% de la altura del viewport */
+    width: 100%; /* Ocupa el 100% del ancho del viewport */
+    display: none; /* Oculto por defecto, se mostrará una vez que la pantalla de carga se oculte */
+    overflow: auto; /* Permite el desplazamiento si el contenido es más grande que el viewport */
+}
+
+.home_main h1 {
+    font-size: large;
+    color: #03A64A;
+}
+
+#header_panel_de_control {
+    background-color: #FFFFFF; /* Blanco para un fondo limpio y profesional */
+    color: #333333; /* Texto en gris oscuro para un buen contraste */
+    padding: 20px; /* Padding adecuado para espaciado */
+    box-shadow: 0 10px 10px rgba(0.1, 0, 0, 0.1); /* Sombra sutil para profundidad */
+    margin: 15px;
+}
+
+#kpis {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px; /* Padding adecuado para espaciado */
+}
+
+.kpi {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    width: 24%;
+    box-shadow: 0 10px 10px rgba(0.1, 0, 0, 0.1); /* Sombra sutil para profundidad */
+}
+
+.custom_chart {
+    height: 5%;
+    width: 45%;
+    max-width: 1200px; /* O cualquier ancho máximo que desees */
+    margin: 0 auto;    /* Para centrar el contenedor si es más estrecho que el viewport */
+}
+/* Vamos aqui */
+
+.kpi h4 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.kpi p {
+    font-size: 24px;
+    margin: 0;
+    color: #007bff;
+}
+
+#contentContainer{
+    background-color: #F2F4F4;
+}
+
+@media (max-width: 750px) {
+    .custom_chart {
+        height: 5%;
+        width: 100%;
+    }
+
+    .kpi {
+        width: 25%;
+    }
+
+    .kpi p {
+        font-size: 15px;
+        margin: 0;
+        color: #007bff;
+    }
+
+    .kpi h4 {
+        font-size: 13px;
+    }
+}
